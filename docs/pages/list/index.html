@@ -21,6 +21,7 @@
     <script src="../../lib/materialize/js/materialize.min.js" defer></script>
 
     <script src="../../common/dbHolder.js" defer></script>
+    <script src="../../common/parameters.js" defer></script>
 
     <script src="./script.js" defer></script>
     <title>list</title>
@@ -52,5 +53,15 @@
         </tr>
       </tbody>
     </table>
+    
+    <script>
+      
+      window.addEventListener("load", () => {
+        //service workerの登録
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("../../sw.js");
+        }
+      });
+    </script>
   </body>
 </html>

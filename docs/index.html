@@ -5,10 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <script src="./common/parameters.js"></script>
 </head>
 <body>
   <script>
-    location.href="./pages/list/index.html"
+    Parameters.removeListBaseDate()
+    window.addEventListener("load", () => {
+      //service workerの登録
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js");
+      }
+    });
+    // location.href="./pages/list/index.html"
   </script>
+  <a href="./pages/list/index.html">start</a>
 </body>
 </html>

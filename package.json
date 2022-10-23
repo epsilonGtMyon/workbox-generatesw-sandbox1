@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "serve": "http-server ./public -o / -a localhost",
+    "serve": "http-server ./docs -o / -a localhost",
     "gensw": "node ./generatesw.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -19,8 +19,7 @@
 
   // ================================
   // parameter
-  const param = new URLSearchParams(location.search);
-  const formattedDateText = param.get("date");
+  const formattedDateText = Parameters.getDetailParamDate();
 
   // ================================
   // DOM

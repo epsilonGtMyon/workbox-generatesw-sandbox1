@@ -40,9 +40,8 @@
    * @param {*} param0
    */
   function moveToDetail({ formattedDate }) {
-    const param = new URLSearchParams();
-    param.append("date", formattedDate);
-    location.href = `../detail/index.html?${param.toString()}`;
+    Parameters.setDetailParamDate(formattedDate)
+    location.href = `../detail/index.html`;
   }
 
   /**
@@ -161,7 +160,7 @@
       0,
       4
     )}/${monthFirstText.slice(4, 6)}`;
-    history.replaceState(null, "", `index.html?d=${monthFirstText}`);
+    Parameters.setListBaseDate(monthFirstText)
   }
 
   async function previousMonth() {
@@ -185,8 +184,7 @@
 
   //--------------------------
 
-  const param = new URLSearchParams(location.search);
-  const paramDate = param.get("d");
+  const paramDate = Parameters.getListBaseDate()
   if (paramDate) {
     currentDispMonth = reverseFormattedDate(paramDate);
   } else {

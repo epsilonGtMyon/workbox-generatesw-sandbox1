@@ -8,10 +8,11 @@ const DbHolder = (function () {
     money: `date`,
   });
 
+  function getDb() {
+    return db;
+  }
 
   return {
-    getDb() {
-      return db
-    }
-  }
+    getDb,
+  };
 })();
