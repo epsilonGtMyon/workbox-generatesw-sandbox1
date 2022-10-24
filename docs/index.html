@@ -6,14 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <script src="./common/parameters.js"></script>
+  <!-- マニフェストファイルの読み込み -->
+  <link rel="manifest" href="./manifest.webmanifest" />
 </head>
 <body>
   <script>
     Parameters.removeListBaseDate()
     window.addEventListener("load", () => {
       //service workerの登録
-      if ("serviceWorker" in navigator) {
+      const isLocal = location.hostname === "localhost";
+      if (isLocal) {
         navigator.serviceWorker.register("./sw.js");
+      } else {
+        navigator.serviceWorker.register("./sw.js", {
+          scope: "/workbox-generatesw-sandbox1/",
+        });
       }
     });
     // location.href="./pages/list/index.html"
